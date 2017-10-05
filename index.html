@@ -7,9 +7,29 @@
 <body>
 
     <form>
+        <input type='text' name='name'/>
+        <br/>
+        <input type='password' name='password'/>
+        <br/>
         <button type="button" onclick=hey()> press me</button>
 
     </form>
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyD7IJiE6Gobgr8l3J0pqaNO4F3L0etGHjQ",
+        authDomain: "agentproject-be016.firebaseapp.com",
+        databaseURL: "https://agentproject-be016.firebaseio.com",
+        projectId: "agentproject-be016",
+        storageBucket: "agentproject-be016.appspot.com",
+        messagingSenderId: "53040763571"
+      };
+      firebase.initializeApp(config);
+    </script>
+
 
     <script>
         function hey() {
