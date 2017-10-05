@@ -7,9 +7,9 @@
 <body>
 
     <form>
-        <input type='text' name='name'/>
+        <input type='text' name='name' id='email' />
         <br/>
-        <input type='password' name='password'/>
+        <input type='password' name='password' id='password' />
         <br/>
         <button type="button" onclick=hey()> press me</button>
 
@@ -18,25 +18,28 @@
 
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
     <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyD7IJiE6Gobgr8l3J0pqaNO4F3L0etGHjQ",
-        authDomain: "agentproject-be016.firebaseapp.com",
-        databaseURL: "https://agentproject-be016.firebaseio.com",
-        projectId: "agentproject-be016",
-        storageBucket: "agentproject-be016.appspot.com",
-        messagingSenderId: "53040763571"
-      };
-      firebase.initializeApp(config);
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyD7IJiE6Gobgr8l3J0pqaNO4F3L0etGHjQ",
+            authDomain: "agentproject-be016.firebaseapp.com",
+            databaseURL: "https://agentproject-be016.firebaseio.com",
+            projectId: "agentproject-be016",
+            storageBucket: "agentproject-be016.appspot.com",
+            messagingSenderId: "53040763571"
+        };
+        firebase.initializeApp(config);
     </script>
+
+
+
 
 
     <script>
         function hey() {
 
-            //  alert("hello");
+            var email = document.getElementById('email').innerHTML;
+            var password = document.getElementById('password').innerHTML;
 
-            // alert( window.location.href);
             var client_id = getParameterByName('client_id');
             var redirect_uri = getParameterByName('redirect_uri');
             var state = getParameterByName('state');
@@ -45,6 +48,13 @@
 
             //    alert(window.location.ref);
             console.log(client_id + '\n' + redirect_uri);
+
+
+            const auth=firebase.auth();
+
+            const promise=auth.signInWithEmailAndPassword(email,password);
+            promise.catch(e=> console.log(e.message));
+
 
             window.location.href = 'https://oauth-redirect.googleusercontent.com/r/' + YOUR_PROJECT_ID + '#access_token=' + ACCESS_TOKEN + '&token_type=bearer&state=' + state
 
