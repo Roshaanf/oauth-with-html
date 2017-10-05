@@ -1,0 +1,40 @@
+<Html>
+
+<head>
+
+</head>
+
+<body>
+
+    <form>
+        <button type="button" onclick=hey()> press me</button>
+
+    </form>
+
+    <script>
+        function hey() {
+
+            //  alert("hello");
+
+            // alert( window.location.href);
+            var client_id = getParameterByName('client_id');
+            var redirect_uri = getParameterByName('refirect_uri');
+            var state = getParameterByName('state');
+            alert(client_id + redirect_uri +scope);
+
+
+        }
+
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+    </script>
+</body>
+
+</Html>
