@@ -60,7 +60,7 @@
 
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("GET", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
-            xmlHttp.send(null);
+            xmlHttp.send();
             console.log( xmlHttp.responseText);
 
             // const auth = firebase.auth();
