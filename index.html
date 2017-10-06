@@ -60,8 +60,8 @@
 
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("POST", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
-            xmlhttp.setRequestHeader("Content-Type", "application/json");
-            xmlhttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
+            xmlHttp.setRequestHeader("Content-Type", "application/json");
+            xmlHttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
 
             // xmlHttp.send();
             // console.log( xmlHttp.responseText);
