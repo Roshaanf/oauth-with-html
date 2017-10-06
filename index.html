@@ -57,11 +57,14 @@
             //    alert(window.location.ref);
             // console.log(client_id + '\n' + redirect_uri);
 
-           
+
             var xmlHttp = new XMLHttpRequest();
-            xmlHttp.open("GET", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
-            xmlHttp.send();
-            console.log( xmlHttp.responseText);
+            xmlHttp.open("POST", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
+            xmlhttp.setRequestHeader("Content-Type", "application/json");
+            xmlhttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
+
+            // xmlHttp.send();
+            // console.log( xmlHttp.responseText);
 
             // const auth = firebase.auth();
 
