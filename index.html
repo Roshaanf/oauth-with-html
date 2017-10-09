@@ -51,20 +51,24 @@
             var redirect_uri = getParameterByName('redirect_uri');
             var state = getParameterByName('state');
             var YOUR_PROJECT_ID = 'agentproject-be016';
-            var ACCESS_TOKEN = 'abcd';
+            // var ACCESS_TOKEN = 'abcd';
 
             //ham yahan sy erquest krengy cloud function p or wahan sy access token return hoga wo use krengy
             //    alert(window.location.ref);
             // console.log(client_id + '\n' + redirect_uri);
 
-console.log(email);
+            console.log(email);
+
+            //AJAX REQUEST
             var xmlHttp = new XMLHttpRequest();
             xmlHttp.open("POST", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
             xmlHttp.setRequestHeader("Content-Type", "application/json");
             xmlHttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
 
             // xmlHttp.send();
-            console.log( xmlHttp.responseText+"hh");
+            console.log(xmlHttp.responseText + "hh");
+
+            var ACCESS_TOKEN = xmlHttp.responseText;
 
             // const auth = firebase.auth();
 
@@ -78,8 +82,10 @@ console.log(email);
 
 
 
-
-            // window.location.href = 'https://oauth-redirect.googleusercontent.com/r/' + YOUR_PROJECT_ID + '#access_token=' + ACCESS_TOKEN + '&token_type=bearer&state=' + state
+            if (ACCESS_TOKEN = 0)
+                alert("incorrect email or password");
+            else
+                window.location.href = 'https://oauth-redirect.googleusercontent.com/r/' + YOUR_PROJECT_ID + '#access_token=' + ACCESS_TOKEN + '&token_type=bearer&state=' + state
 
         }
 
