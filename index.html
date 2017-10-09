@@ -23,7 +23,7 @@
     </form>
 
 
-    <!-- <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
     <script>
         // Initialize Firebase
         var config = {
@@ -35,7 +35,7 @@
             messagingSenderId: "53040763571"
         };
         firebase.initializeApp(config);
-    </script> -->
+    </script>
 
 
 
@@ -64,7 +64,6 @@
            // xmlHttp.open("POST", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
            xmlHttp.open("POST", 'https://us-central1-second-5bcbc.cloudfunctions.net/sendToken', false);
            xmlHttp.setRequestHeader("Content-Type", "application/json");
-           xmlHttp.setRequestHeader("Access-Control-Allow-Origin", "*");
             xmlHttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
 
             // xmlHttp.send();
