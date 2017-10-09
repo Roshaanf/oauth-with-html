@@ -64,6 +64,7 @@
            // xmlHttp.open("POST", 'https://us-central1-agentproject-be016.cloudfunctions.net/sendToken', false); // false for synchronous request
            xmlHttp.open("POST", 'https://us-central1-second-5bcbc.cloudfunctions.net/sendToken', false);
            xmlHttp.setRequestHeader("Content-Type", "application/json");
+           res.setRequestHeader("Access-Control-Allow-Origin", "*");
             xmlHttp.send(JSON.stringify({ userEmail: email, userPassword: password }));
 
             // xmlHttp.send();
